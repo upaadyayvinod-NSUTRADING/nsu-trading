@@ -1,0 +1,750 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NSU Trading | Global Export Solutions</title>
+        <style>
+            /* ---------- STYLES (unchanged) ---------- */
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background: #fafafa;
+                color: #333;
+            }
+
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 25px 40px;
+                background: white;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .logo-container {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .logo-img {
+                height: 160px;
+            }
+
+            .brand-name {
+                font-size: 48px;
+                font-weight: bold;
+                color: #065f46;
+            }
+
+            nav a {
+                margin-left: 20px;
+                text-decoration: none;
+                font-weight: bold;
+                color: #333;
+                cursor: pointer;
+                font-size: 1.2rem;
+            }
+
+            .hero {
+                padding: 100px 40px;
+                background: #e8f0e8;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+                color: #065f46;
+                margin-bottom: 20px;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                color: #2d4a3e;
+                max-width: 700px;
+                margin: 0 auto 30px;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                padding: 40px;
+            }
+
+            .card {
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                overflow: hidden;
+                background: white;
+                transition: transform 0.2s, box-shadow 0.2s;
+                cursor: pointer;
+            }
+
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            .card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .card h3 {
+                padding: 10px;
+                margin: 0;
+                text-align: center;
+            }
+
+            .category-heading {
+                text-align: center;
+                font-size: 2rem;
+                color: #065f46;
+                margin: 40px 0 20px;
+            }
+
+            .back-btn {
+                display: inline-block;
+                margin: 20px 40px;
+                background: #065f46;
+                color: white;
+                padding: 8px 20px;
+                border-radius: 30px;
+                text-decoration: none;
+                font-weight: bold;
+                cursor: pointer;
+                border: none;
+                font-size: 1rem;
+            }
+
+            .back-btn:hover {
+                background: #0a7a5a;
+            }
+
+            .detail-container {
+                max-width: 800px;
+                margin: 40px auto;
+                padding: 30px;
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            .detail-container h2 {
+                color: #065f46;
+                text-align: center;
+                margin-top: 0;
+            }
+
+            .detail-container img {
+                max-width: 100%;
+                max-height: 300px;
+                object-fit: contain;
+                display: block;
+                margin: 20px auto;
+            }
+
+            .detail-description {
+                line-height: 1.6;
+                margin: 20px 0;
+            }
+
+            .detail-description h3, .detail-description h4 {
+                color: #065f46;
+            }
+
+            .detail-description ul {
+                padding-left: 20px;
+            }
+
+            .detail-features {
+                background: #f0f7f0;
+                padding: 20px;
+                border-radius: 8px;
+            }
+
+            .detail-features h3 {
+                color: #065f46;
+                margin-top: 0;
+            }
+
+            .detail-features ul {
+                padding-left: 20px;
+                margin-bottom: 0;
+            }
+
+            .detail-features li {
+                margin-bottom: 8px;
+            }
+
+            .contact {
+                background: white;
+                padding: 60px 40px;
+                text-align: center;
+            }
+
+            .contact h2 {
+                font-size: 2rem;
+                color: #065f46;
+                margin-bottom: 20px;
+            }
+
+            /* Style for the embedded Google Form iframe */
+            .google-form-container {
+                max-width: 640px;
+                margin: 0 auto;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .google-form-container iframe {
+                width: 100%;
+                height: 900px; /* Adjusted height to show all fields comfortably */
+                border: none;
+                display: block;
+            }
+
+            .social-links {
+                margin-top: 30px;
+            }
+
+            .social-links a {
+                display: inline-block;
+                margin: 0 10px;
+                color: #065f46;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            .social-links a:hover {
+                text-decoration: underline;
+            }
+
+            footer {
+                background: #065f46;
+                color: white;
+                text-align: center;
+                padding: 20px;
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 10px;
+                    padding: 15px 20px;
+                }
+                .logo-img {
+                    height: 100px;
+                }
+                .brand-name {
+                    font-size: 32px;
+                }
+                nav {
+                    margin-top: 10px;
+                }
+                .google-form-container iframe {
+                    height: 1000px; /* Slightly taller on mobile */
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+    <header>
+        <div class="logo-container" onclick="showHome()">
+            <img src="image/nsu-logo.png" alt="NSU Trading Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/160x160?text=Logo'">
+            <div class="brand-name">NSU TRADING</div>
+        </div>
+        <nav>
+            <a onclick="showHome()">Home</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero" id="hero">
+        <h1>Strategic Sourcing. Reliable Delivery.</h1>
+        <p>Global export partner for high-demand commodities.</p>
+    </section>
+
+    <!-- Category cards section -->
+    <div id="categorySection">
+        <section class="grid" id="categoryGrid"></section>
+    </div>
+
+    <!-- Product listing section (hidden initially) -->
+    <div id="productSection" style="display: none;">
+        <button class="back-btn" onclick="showHome()">← Back to Categories</button>
+        <h2 id="categoryTitle" class="category-heading"></h2>
+        <section class="grid" id="productGrid"></section>
+    </div>
+
+    <!-- Product detail section (hidden initially) -->
+    <div id="detailSection" style="display: none;">
+        <button class="back-btn" onclick="backToProducts()">← Back to Products</button>
+        <div class="detail-container">
+            <h2 id="detailTitle"></h2>
+            <img id="detailImage" src="" alt="">
+            <div class="detail-description" id="detailDescription"></div>
+            <div class="detail-features">
+                <h3>Product Features</h3>
+                <ul id="detailFeatures"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section with Embedded Google Form -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+
+        <!-- Embedded Google Form - Your NSU Trading Inquiry Form -->
+        <div class="google-form-container">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQjFz8Ap0-bMpLFoJqDf46-7g9rymHdqdQTwfHPLYfDnT45g/viewform?embedded=true">
+                Loading…
+            </iframe>
+        </div>
+
+        <div class="social-links">
+            <a href="https://instagram.com/upaadyayvinod" target="_blank">Instagram: @upaadyayvinod</a>
+            <a href="https://linkedin.com/in/vinod-upaadyay-a472283b1" target="_blank">LinkedIn: Vinod Upaadyay</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 NSU Trading. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // ---------- FULL PRODUCT DATA (unchanged) ----------
+        const categories = [
+            {
+                name: "Metal & Minerals",
+                image: "image/metal-minerals.jpg",
+                products: [
+                    "Copper / Copper scrap / copper cathodes",
+                    "Aluminium / Aluminum scrap / ingots",
+                    "Brass / Brass scrap",
+                    "Stainless steel / Stainless steel scrap",
+                    "Iron ore",
+                    "Bauxite",
+                    "Manganese ore",
+                    "Zinc scrap",
+                    "Lead scrap",
+                    "Ferro alloys",
+                    "Metal powder",
+                    "Industrial minerals (quartz, feldspar, limestone, mica, sandstone, marble, granite and many more)"
+                ]
+            },
+            {
+                name: "Food & Agriculture",
+                image: "image/food-agriculture.jpg",
+                products: [
+                    "Rice (Basmati / Non-Basmati)",
+                    "Pulses (Toor, Chana, Moong and others.)",
+                    "Fresh fruits (Banana, Mango, Orange Pomegranate and others)",
+                    "Vegetables (Onion, Green chilli, Okra, Drumstick, Yam and others)",
+                    "Coconuts",
+                    "Oil seeds (Sesame, Groundnut)",
+                    "Animal feed (Maize)",
+                    "Organic Jaggery",
+                    "Dehydrated products"
+                ]
+            },
+            {
+                name: "Handicraft",
+                image: "image/handicraft.jpg",
+                products: [
+                    "Wooden handicrafts",
+                    "Brass items",
+                    "Copper decor",
+                    "Handwoven textiles",
+                    "Home decor items",
+                    "Decorative lamps",
+                    "Marble artifacts",
+                    "Bamboo products",
+                    "Gift items",
+                    "Handcrafted furniture",
+                    "Clay pottery",
+                    "Carpets and Rugs",
+                    "Artificials Gems and Jewellery"
+                ]
+            },
+            {
+                name: "Spices",
+                image: "image/spices.jpg",
+                products: [
+                    "Turmeric / Lakadong turmeric",
+                    "Red chili",
+                    "Black pepper",
+                    "Cumin seeds",
+                    "Coriander seeds",
+                    "Cardamom",
+                    "Cloves",
+                    "Cinnamon",
+                    "Mustard seeds",
+                    "Spice powders",
+                    "Spice blends (garam masala)"
+                ]
+            },
+            {
+                name: "Ayurvedic products",
+                image: "image/ayurvedic.jpg",
+                products: [
+                    "Ashwagandha root / Ashwagandha powder",
+                    "Moringa powder",
+                    "Tulsi (holy basil)",
+                    "Neem leaves / powder",
+                    "Amla (Indian Gooseberry)",
+                    "Essential oils",
+                    "Herbal cosmetics (soap, oil, cream)",
+                    "Herbal health products"
+                ]
+            }
+        ];
+
+        // ---------- PRODUCT IMAGE MAPPING (unchanged) ----------
+        function getProductImage(productName) {
+            const imageMap = {
+                // Metal & Minerals
+                "Copper / Copper scrap / copper cathodes": "image/copper.jpg",
+                "Aluminium / Aluminum scrap / ingots": "image/aluminium.jpg",
+                "Brass / Brass scrap": "image/brass-scrap.jpg",
+                "Stainless steel / Stainless steel scrap": "image/stainless-steel.jpg",
+                "Iron ore": "image/iron-ore.jpg",
+                "Bauxite": "image/bauxite.jpg",
+                "Manganese ore": "image/manganese.jpg",
+                "Zinc scrap": "image/zinc.jpg",
+                "Lead scrap": "image/lead.jpg",
+                "Ferro alloys": "image/ferro-alloys.jpg",
+                "Metal powder": "image/metal-powder.jpg",
+                "Industrial minerals (quartz, feldspar, limestone, mica, sandstone, marble, granite and many more)": "image/industrial-minerals.jpg",
+
+                // Food & Agriculture
+                "Rice (Basmati / Non-Basmati)": "image/rice.png",
+                "Pulses (Toor, Chana, Moong and others.)": "image/pulses.jpg",
+                "Fresh fruits (Banana, Mango, Orange Pomegranate and others)": "image/fruits.jpg",
+                "Vegetables (Onion, Green chilli, Okra, Drumstick, Yam and others)": "image/vegetables.jpg",
+                "Coconuts": "image/coconut.jpg",
+                "Oil seeds (Sesame, Groundnut)": "image/oilseeds.jpg",
+                "Animal feed (Maize)": "image/maize.jpg",
+                "Organic Jaggery": "image/jaggery.jpg",
+                "Dehydrated products": "image/dehydrated.jpg",
+
+                // Handicraft
+                "Wooden handicrafts": "image/wooden.jpg",
+                "Brass items": "image/brass-items.jpg",
+                "Copper decor": "image/copper-decor.jpg",
+                "Handwoven textiles": "image/textiles.jpg",
+                "Home decor items": "image/home-decor.jpg",
+                "Decorative lamps": "image/lamps.jpg",
+                "Marble artifacts": "image/marble.jpg",
+                "Bamboo products": "image/bamboo.jpg",
+                "Gift items": "image/gift.jpg",
+                "Handcrafted furniture": "image/furniture.jpg",
+                "Clay pottery": "image/pottery.jpg",
+                "Carpets and Rugs": "image/carpets.jpg",
+                "Artificials Gems and Jewellery": "image/gems.jpg",
+
+                // Spices
+                "Turmeric / Lakadong turmeric": "image/turmeric.jpg",
+                "Red chili": "image/red-chili.jpg",
+                "Black pepper": "image/pepper.jpg",
+                "Cumin seeds": "image/cumin.jpg",
+                "Coriander seeds": "image/coriander.jpg",
+                "Cardamom": "image/cardamom.jpg",
+                "Cloves": "image/cloves.jpg",
+                "Cinnamon": "image/cinnamon.jpg",
+                "Mustard seeds": "image/mustard.jpg",
+                "Spice powders": "image/spice-powder.jpg",
+                "Spice blends (garam masala)": "image/garam-masala.jpg",
+
+                // Ayurvedic
+                "Ashwagandha root / Ashwagandha powder": "image/ashwagandha.jpg",
+                "Moringa powder": "image/moringa.jpg",
+                "Tulsi (holy basil)": "image/tulsi.jpg",
+                "Neem leaves / powder": "image/neem.jpg",
+                "Amla (Indian Gooseberry)": "image/amla.jpg",
+                "Essential oils": "image/essential-oils.jpg",
+                "Herbal cosmetics (soap, oil, cream)": "image/herbal-cosmetics.jpg",
+                "Herbal health products": "image/herbal-health.jpg"
+            };
+            return imageMap[productName] || "https://via.placeholder.com/300x200?text=" + encodeURIComponent(productName);
+        }
+
+        // ---------- PRODUCT DESCRIPTIONS (unchanged) ----------
+        const productDetails = {
+            // ========== METAL & MINERALS ==========
+            "Copper / Copper scrap / copper cathodes": `
+                <p><strong>Copper cathodes</strong> are sheets of pure copper (typically 99.9%+) produced by electrolytic refining. They are the primary raw material for producing copper rods, wires, tubes and other products.</p>
+                <p><strong>Copper scrap</strong> includes various recycled copper grades such as birch, berry, and candy. It is used in smelting and refining to produce new copper products.</p>
+                <p><strong>Copper granules</strong> are small, granulated particles of copper, often used in sandblasting, as an additive in concrete, or for further processing.</p>
+            `,
+            "Aluminium / Aluminum scrap / ingots": `
+                <p><strong>Aluminium scrap</strong> consists of recycled aluminium from various sources – grades include tense, zorba, and twitch. It is melted down to produce secondary aluminium.</p>
+                <p><strong>Aluminium ingots</strong> are cast blocks of pure aluminium or aluminium alloys (e.g., ADC12, A380). They are remelted for die‑casting, automotive parts, and construction components.</p>
+            `,
+            "Brass / Brass scrap": `
+                <p><strong>Brass scrap</strong> includes recycled brass alloys (copper + zinc) in forms like honey, birch, and clove. It is used to manufacture new brass products such as valves, fittings, and decorative items.</p>
+            `,
+            "Stainless steel / Stainless steel scrap": `
+                <p><strong>Stainless steel scrap</strong> consists of discarded stainless steel items, sorted by grade (304, 316, 430). It is recycled in electric arc furnaces to produce new stainless steel.</p>
+            `,
+            "Iron ore": `
+                <p><strong>Iron ore</strong> is a natural mineral from which metallic iron is extracted. It is available as fines (small particles) and lumps (larger pieces). The main raw material for steel production.</p>
+            `,
+            "Bauxite": `
+                <p><strong>Bauxite</strong> is an aluminium ore, the world's main source of aluminium. It consists mostly of aluminium hydroxides and is processed into alumina, then aluminium metal.</p>
+            `,
+            "Manganese ore": `
+                <p><strong>Manganese ore</strong> is a natural mineral containing manganese in various oxides. It is essential for producing ferromanganese and silico‑manganese alloys used in steelmaking.</p>
+            `,
+            "Zinc scrap": `
+                <p><strong>Zinc scrap</strong> includes recycled zinc from dross, ash, die‑cast parts, and old sheets. It is melted and refined for galvanising, brass production, and zinc alloys.</p>
+            `,
+            "Lead scrap": `
+                <p><strong>Lead scrap</strong> consists of used lead products such as battery plates, lead sheathing, and lead dross. It is recycled to produce refined lead for new batteries and other applications.</p>
+            `,
+            "Ferro alloys": `
+                <p><strong>Ferro alloys</strong> are alloys of iron with other elements (e.g., silicon, manganese, chromium). They are added to molten steel to impart specific properties like hardness or corrosion resistance.</p>
+            `,
+            "Metal powder": `
+                <p><strong>Metal powders</strong> are finely divided metal particles (copper, aluminium, iron, etc.). They are used in powder metallurgy, additive manufacturing, chemical catalysts, and pyrotechnics.</p>
+            `,
+            "Industrial minerals (quartz, feldspar, limestone, mica, sandstone, marble, granite and many more)": `
+                <p><strong>Industrial minerals</strong> are rocks and minerals of economic value other than metal ores. This category includes quartz, feldspar, limestone, mica, sandstone, marble, granite and many others. They are used in construction, ceramics, glassmaking, and various manufacturing industries.</p>
+            `,
+
+            // ========== FOOD & AGRICULTURE ==========
+            "Rice (Basmati / Non-Basmati)": `
+                <p><strong>Basmati rice</strong> is a long‑grain aromatic rice grown in the Indian subcontinent. <strong>Non‑Basmati rice</strong> includes varieties like IR64, Swarna, and Ponni. Rice is a staple food for a large part of the world.</p>
+            `,
+            "Pulses (Toor, Chana, Moong and others.)": `
+                <p><strong>Pulses</strong> are edible seeds of leguminous plants. <strong>Toor</strong> (pigeon pea), <strong>Chana</strong> (chickpea), <strong>Moong</strong> (green gram) are common Indian pulses, rich in protein and used in various dishes.</p>
+            `,
+            "Fresh fruits (Banana, Mango, Orange Pomegranate and others)": `
+                <p><strong>Fresh fruits</strong> include bananas, mangoes, oranges, pomegranates, and seasonal varieties. They are consumed fresh or used in juices, desserts, and processed foods.</p>
+            `,
+            "Vegetables (Onion, Green chilli, Okra, Drumstick, Yam and others)": `
+                <p><strong>Fresh vegetables</strong> such as onions, green chillies, okra, drumstick, yam, and others. They are essential ingredients in daily cooking worldwide.</p>
+            `,
+            "Coconuts": `
+                <p><strong>Coconuts</strong> are the fruit of the coconut palm. Products include:</p>
+                <ul>
+                    <li><strong>Edible copra:</strong> dried coconut kernel, used in food and as a snack.</li>
+                    <li><strong>Milling copra:</strong> dried pieces used for coconut oil extraction.</li>
+                    <li><strong>Ball copra:</strong> whole dried kernel, also edible.</li>
+                    <li><strong>Tender coconuts:</strong> young green coconuts with refreshing water and soft flesh.</li>
+                </ul>
+            `,
+            "Oil seeds (Sesame, Groundnut)": `
+                <p><strong>Oil seeds</strong> are seeds grown primarily for oil extraction. <strong>Sesame seeds</strong> come in natural (brown) and hulled (white) forms. <strong>Groundnuts</strong> (peanuts) are available in shell or as kernels. Both are also consumed directly or used in food products.</p>
+            `,
+            "Animal feed (Maize)": `
+                <p><strong>Maize</strong> (corn) is a cereal grain widely used as animal feed, particularly for poultry and cattle. It provides energy and nutrients in feed formulations.</p>
+            `,
+            "Organic Jaggery": `
+                <p><strong>Jaggery</strong> is a traditional non‑centrifugal cane sugar consumed in Asia and Africa. It is made by concentrating sugarcane juice and is available in blocks, cubes, or powder form.</p>
+            `,
+            "Dehydrated products": `
+                <p><strong>Dehydrated products</strong> are fruits, vegetables, or herbs that have been dried to remove moisture, extending shelf life. Examples include dehydrated onion, garlic, tomato, and mango.</p>
+            `,
+
+            // ========== HANDICRAFT ==========
+            "Wooden handicrafts": `
+                <p><strong>Wooden handicrafts</strong> are items made from wood by hand carving or crafting. This includes decorative pieces, furniture, kitchenware, and statues, often showcasing traditional art.</p>
+            `,
+            "Brass items": `
+                <p><strong>Brass items</strong> are products made from brass, an alloy of copper and zinc. They include lamps, idols, dinner sets, and decorative pieces, often polished or engraved.</p>
+            `,
+            "Copper decor": `
+                <p><strong>Copper decor</strong> refers to decorative items made from copper, such as vessels, wall art, and showpieces. Copper is valued for its appearance and antimicrobial properties.</p>
+            `,
+            "Handwoven textiles": `
+                <p><strong>Handwoven textiles</strong> are fabrics produced on a handloom, using cotton, silk, wool, or blends. They include sarees, scarves, and dress materials with traditional patterns.</p>
+            `,
+            "Home decor items": `
+                <p><strong>Home decor items</strong> encompass a wide range of decorative articles for interior decoration: wall hangings, candle stands, vases, and ornamental pieces.</p>
+            `,
+            "Decorative lamps": `
+                <p><strong>Decorative lamps</strong> include lighting fixtures made from materials like brass, wood, or ceramic. They serve both functional and aesthetic purposes – floor lamps, table lamps, hanging lights.</p>
+            `,
+            "Marble artifacts": `
+                <p><strong>Marble artifacts</strong> are objects carved from marble, such as sculptures, inlay work, tabletops, and decorative items. Marble is prized for its beauty and workability.</p>
+            `,
+            "Bamboo products": `
+                <p><strong>Bamboo products</strong> are made from bamboo, a fast‑growing grass. Items include baskets, furniture, window blinds, kitchenware, and garden accessories.</p>
+            `,
+            "Gift items": `
+                <p><strong>Gift items</strong> are small articles suitable for gifting: keychains, photo frames, diaries, corporate gifts, and novelty items.</p>
+            `,
+            "Handcrafted furniture": `
+                <p><strong>Handcrafted furniture</strong> includes chairs, tables, cabinets, beds, and other furniture pieces made by hand, often using traditional joinery and finishing techniques.</p>
+            `,
+            "Clay pottery": `
+                <p><strong>Clay pottery</strong> includes pots, diyas (oil lamps), cookware, and decorative items made from clay and fired. Terracotta is a common type of clay pottery.</p>
+            `,
+            "Carpets and Rugs": `
+                <p><strong>Carpets and rugs</strong> are textile floor coverings. Hand‑knotted carpets from regions like Bhadohi and Kashmir are known for their intricate designs. Materials include wool, silk, and cotton.</p>
+            `,
+            "Artificials Gems and Jewellery": `
+                <p><strong>Artificial gems and jewellery</strong> are imitation jewellery and semi‑precious stones used in fashion accessories. They provide an affordable alternative to precious stones.</p>
+            `,
+
+            // ========== SPICES ==========
+            "Turmeric / Lakadong turmeric": `
+                <p><strong>Turmeric</strong> is a rhizome used as a spice, colouring agent, and in traditional medicine. It is available as whole fingers or ground powder. <strong>Lakadong turmeric</strong> is a variety from Meghalaya known for its high curcumin content.</p>
+            `,
+            "Red chili": `
+                <p><strong>Red chillies</strong> are dried fruits of chili pepper plants. They come in various varieties (Byadagi, Guntur, Kashmiri) differing in pungency and colour. Used whole or ground.</p>
+            `,
+            "Black pepper": `
+                <p><strong>Black pepper</strong> is a spice made from dried, unripe berries of the pepper plant. It is valued for its pungent flavour and is available whole or ground.</p>
+            `,
+            "Cumin seeds": `
+                <p><strong>Cumin seeds</strong> are the dried seeds of the Cuminum cyminum plant. They have a warm, earthy flavour and are used whole or ground in many cuisines.</p>
+            `,
+            "Coriander seeds": `
+                <p><strong>Coriander seeds</strong> are the dried seeds of the coriander plant (cilantro). They have a mild, citrusy flavour and are used whole or ground as a spice.</p>
+            `,
+            "Cardamom": `
+                <p><strong>Cardamom</strong> is a spice made from the seeds of plants in the ginger family. Two main types: green (small) cardamom and black (large) cardamom. Used in sweet and savoury dishes.</p>
+            `,
+            "Cloves": `
+                <p><strong>Cloves</strong> are the aromatic dried flower buds of the clove tree. They have a strong, pungent flavour and are used whole or ground in cooking and beverages.</p>
+            `,
+            "Cinnamon": `
+                <p><strong>Cinnamon</strong> is a spice obtained from the inner bark of several tree species. True cinnamon (Ceylon) has a delicate flavour; cassia is stronger. Used in sweet and savoury dishes.</p>
+            `,
+            "Mustard seeds": `
+                <p><strong>Mustard seeds</strong> are the small round seeds of various mustard plants. Brown, yellow, and black varieties are used as a spice in cooking and for oil extraction.</p>
+            `,
+            "Spice powders": `
+                <p><strong>Spice powders</strong> are single spices ground into powder form, such as turmeric powder, chilli powder, coriander powder, and cumin powder.</p>
+            `,
+            "Spice blends (garam masala)": `
+                <p><strong>Spice blends</strong> are mixtures of ground spices. <strong>Garam masala</strong> is a popular North Indian blend containing cardamom, cinnamon, cloves, cumin, and other spices.</p>
+            `,
+
+            // ========== AYURVEDIC PRODUCTS ==========
+            "Ashwagandha root / Ashwagandha powder": `
+                <p><strong>Ashwagandha</strong> (Withania somnifera) is a medicinal herb used in Ayurveda. The roots are dried and used whole or ground into powder. It is traditionally used as a tonic and adaptogen.</p>
+            `,
+            "Moringa powder": `
+                <p><strong>Moringa powder</strong> is made by drying and grinding the leaves of the Moringa oleifera tree. It is rich in nutrients and used as a dietary supplement.</p>
+            `,
+            "Tulsi (holy basil)": `
+                <p><strong>Tulsi</strong> (Ocimum tenuiflorum), or holy basil, is an aromatic plant revered in Ayurveda. The leaves are dried and used for teas and herbal preparations.</p>
+            `,
+            "Neem leaves / powder": `
+                <p><strong>Neem</strong> (Azadirachta indica) is a tree whose leaves, bark, and oil are used in traditional medicine. Dried neem leaves and powder are used in skincare and herbal remedies.</p>
+            `,
+            "Amla (Indian Gooseberry)": `
+                <p><strong>Amla</strong> (Phyllanthus emblica), or Indian gooseberry, is a fruit rich in vitamin C. It is consumed fresh, dried, or powdered, and used in Ayurvedic formulations.</p>
+            `,
+            "Essential oils": `
+                <p><strong>Essential oils</strong> are concentrated hydrophobic liquids containing volatile aroma compounds from plants. Examples include lemongrass, eucalyptus, peppermint, and sandalwood oils. Used in aromatherapy, cosmetics, and flavouring.</p>
+            `,
+            "Herbal cosmetics (soap, oil, cream)": `
+                <p><strong>Herbal cosmetics</strong> are personal care products made with plant‑based ingredients. This category includes herbal soaps, hair oils, face creams, and scrubs formulated with traditional herbs.</p>
+            `,
+            "Herbal health products": `
+                <p><strong>Herbal health products</strong> encompass dietary supplements and wellness formulations based on herbs. Examples include chyawanprash (a herbal jam), triphala (a three‑fruit formula), herbal teas, and wellness capsules.</p>
+            `
+        };
+
+        // ---------- RENDER CATEGORY CARDS (unchanged) ----------
+        function renderCategories() {
+            const grid = document.getElementById('categoryGrid');
+            grid.innerHTML = '';
+            categories.forEach(cat => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.onclick = () => showProducts(cat.name);
+                card.innerHTML = `
+                    <img src="${cat.image}" alt="${cat.name}" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(cat.name)}'">
+                    <h3>${cat.name}</h3>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // ---------- SHOW PRODUCTS (unchanged) ----------
+        function showProducts(categoryName) {
+            const category = categories.find(c => c.name === categoryName);
+            if (!category) return;
+
+            document.getElementById('hero').style.display = 'none';
+            document.getElementById('categorySection').style.display = 'none';
+            document.getElementById('productSection').style.display = 'block';
+            document.getElementById('detailSection').style.display = 'none';
+
+            document.getElementById('categoryTitle').textContent = category.name;
+
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+
+            category.products.forEach(prod => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.onclick = () => showDetail(prod);
+                card.innerHTML = `
+                    <img src="${getProductImage(prod)}" alt="${prod}" onerror="this.src='https://via.placeholder.com/300x200?text=${encodeURIComponent(prod)}'">
+                    <h3>${prod}</h3>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // ---------- SHOW DETAIL VIEW (unchanged) ----------
+        function showDetail(productName) {
+            document.getElementById('productSection').style.display = 'none';
+            document.getElementById('detailSection').style.display = 'block';
+
+            document.getElementById('detailTitle').textContent = productName;
+            document.getElementById('detailImage').src = getProductImage(productName);
+
+            const descriptionHTML = productDetails[productName] || `<p>${productName}</p>`;
+            document.getElementById('detailDescription').innerHTML = descriptionHTML;
+
+            const features = [
+                "Export grade product",
+                "Sourced from reliable suppliers",
+                "Competitive pricing",
+                "Timely delivery"
+            ];
+            const list = document.getElementById('detailFeatures');
+            list.innerHTML = '';
+            features.forEach(f => {
+                const li = document.createElement('li');
+                li.textContent = f;
+                list.appendChild(li);
+            });
+        }
+
+        function backToProducts() {
+            document.getElementById('detailSection').style.display = 'none';
+            document.getElementById('productSection').style.display = 'block';
+        }
+
+        function showHome() {
+            document.getElementById('hero').style.display = 'block';
+            document.getElementById('categorySection').style.display = 'block';
+            document.getElementById('productSection').style.display = 'none';
+            document.getElementById('detailSection').style.display = 'none';
+        }
+
+        // ---------- INITIALISE ----------
+        renderCategories();
+        showHome();
+    </script>
+
+    </body>
+    </html>
